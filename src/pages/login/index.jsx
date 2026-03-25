@@ -25,7 +25,7 @@ export default function Login (){
             
 
         } catch (error) {
-            console.log(ErrorUtils)
+            console.log(error)
         }
     }
 
@@ -45,7 +45,6 @@ export default function Login (){
                 </View>
 
                 <Text style={style.titleInput}>SENHA</Text>
-                <TextInput />
 
                 <View style={style.boxInput}>
                 <TextInput style={style.input} value={password} onChangeText={setPassword} />
