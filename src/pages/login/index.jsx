@@ -1,7 +1,7 @@
 import react, { useState } from "react";
 import { Text, TextInput, View, Image, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { style } from "./styles";
-import Logo from '../../assets/android-icon-foreground.png'
+import Logo from '../../assets/levup-icon-escuro.png'
 import {MaterialIcons } from '@expo/vector-icons'
 import { themes } from "../../global/themes";
 
