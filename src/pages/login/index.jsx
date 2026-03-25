@@ -2,12 +2,15 @@ import react, { useState } from "react";
 import { Text, TextInput, View, Image, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { style } from "./styles";
 import Logo from '../../assets/levup-icon-escuro.png'
-import {MaterialIcons } from '@expo/vector-icons'
+import {MaterialIcons, Octicons } from '@expo/vector-icons'
 import { themes } from "../../global/themes";
+import { Input } from "../../components/input";
+import { Button } from "../../components/button";
 
 export default function Login (){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [showPassword, setShowPassword] = useState(true)
     const [loading, setLoading] = useState(false)
 
     async function getLogin() {
@@ -37,28 +40,13 @@ export default function Login (){
             </View>
 
             <View style={style.boxMid}>
-                <Text style={style.titleInput}>ENDEREÇO DE E-MAIL</Text>
-
-                <View style={style.boxInput}>
-                <TextInput style={style.input} value={email} onChangeText={setEmail} />
-                <MaterialIcons name="email" size="20" color={themes.colors.gray}/>
-                </View>
-
-                <Text style={style.titleInput}>SENHA</Text>
-
-                <View style={style.boxInput}>
-                <TextInput style={style.input} value={password} onChangeText={setPassword} />
-                <MaterialIcons name="remove-red-eye" size="20" color={themes.colors.gray}/>
-                </View>
+                <Input title="ENDEREÇO DE E-MAIL" value={email} onChangeText={setEmail} IconRight={MaterialIcons} IconRightName="email" />
+                <Input title="SENHA" value={password} onChangeText={setPassword} IconRight={Octicons} IconRightName={showPassword?"eye-closed":"eye"} secureTextEntry={showPassword} onIconRightPress={()=>setShowPassword(!showPassword)}/>                
 
             </View>
 
             <View style={style.boxBottom}>
-                <TouchableOpacity style={style.button} onPress={getLogin}>
-
-                    {loading?<ActivityIndicator />:<Text style={style.textButton}>Entrar</Text>}
-
-                </TouchableOpacity>
+                <Button text="ENTRAR" loading={loading} onPress={getLogin}/>
             </View>
 
             <Text style={style.textBotton}>Não tem conta? <Text style={{color:themes.colors.primary}}>Crie agora!</Text></Text>
