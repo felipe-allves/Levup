@@ -55,6 +55,7 @@ export const style = StyleSheet.create({
         height:'100%',
         width: '90%',
         borderRadius: 10,
+        color:themes.colors.gray
     },
     button:{
         width:200,
