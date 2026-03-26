@@ -4,8 +4,8 @@ import { style } from "./styles";
 import Logo from '../../assets/levup-icon-escuro.png'
 import {MaterialIcons, Octicons } from '@expo/vector-icons'
 import { themes } from "../../global/themes";
-import { Input } from "../../components/input";
-import { Button } from "../../components/button";
+import { Input } from "../../components/input/indexInput";
+import { Button } from "../../components/button/indexButton";
 
 export default function Login (){
     const [email, setEmail] = useState('')

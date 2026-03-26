@@ -2,7 +2,7 @@ import react, { forwardRef, LegacyRef } from 'react'
 import { View, Text, TextInput, TextInputProps, TouchableOpacity } from 'react-native'
 import {MaterialIcons, FontAwesome, Octicons } from '@expo/vector-icons'
 import { themes } from '../../global/themes'
-import { style } from "./styles";
+import { style } from "./stylesInput";
 
 type IconComponent = React.ComponentType<React.ComponentProps<typeof MaterialIcons>> |
                      React.ComponentType<React.ComponentProps<typeof FontAwesome>> |
