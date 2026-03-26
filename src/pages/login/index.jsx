@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import react, { use, useState } from "react";
 import { Text, TextInput, View, Image, TouchableOpacity, Alert, ActivityIndicator } from 'react-native'
 import { style } from "./styles";
 import Logo from '../../assets/levup-icon-escuro.png'
@@ -6,8 +6,10 @@ import {MaterialIcons, Octicons } from '@expo/vector-icons'
 import { themes } from "../../global/themes";
 import { Input } from "../../components/input/indexInput";
 import { Button } from "../../components/button/indexButton";
+import { useNavigation, NavigationProp } from "@react-navigation/native";
 
 export default function Login (){
+    const navigation = useNavigation()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(true)
@@ -21,14 +23,17 @@ export default function Login (){
                 return Alert.alert('Atenção', 'Informe os campos obrigratórios')
             }
 
+            navigation.reset({routes:[{name:"BottomRoutes"}]})
+
             setTimeout(()=>{
-                Alert.alert('Logado com Sucesso')
-            setLoading(false)
-            },1000)
+                console.log('Logado com Sucesso')
+            },3000)
             
 
         } catch (error) {
             console.log(error)
+        }finally{
+            setLoading(false)
         }
     }
 
