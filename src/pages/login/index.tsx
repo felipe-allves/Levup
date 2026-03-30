@@ -7,9 +7,13 @@ import { themes } from "../../global/themes";
 import { Input } from "../../components/input/indexInput";
 import { Button } from "../../components/button/indexButton";
 import { useNavigation, NavigationProp } from "@react-navigation/native";
+import { StackNavigationProp } from '@react-navigation/stack'
+import { RootStackParamList } from '../../global/navigation'
+
+type LoginNavigationProp = StackNavigationProp<RootStackParamList>
 
 export default function Login (){
-    const navigation = useNavigation()
+    const navigation = useNavigation<LoginNavigationProp>()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [showPassword, setShowPassword] = useState(true)
@@ -23,7 +27,7 @@ export default function Login (){
                 return Alert.alert('Atenção', 'Informe os campos obrigratórios')
             }
 
-            navigation.reset({routes:[{name:"BottomRoutes"}]})
+            navigation.reset({ index: 0, routes: [{ name: 'BottomRoutes' }] })
 
             setTimeout(()=>{
                 console.log('Logado com Sucesso')

@@ -9,8 +9,8 @@ type IconComponent = React.ComponentType<React.ComponentProps<typeof MaterialIco
                      React.ComponentType<React.ComponentProps<typeof Octicons>>
 
 type Props = TextInputProps & {
-    IconLeft?: IconComponent,
-    IconRight?: IconComponent,
+    IconLeft?: any,
+    IconRight?: any,
     IconLeftName?: string,
     IconRightName?: string,
     title?: string,
@@ -46,12 +46,12 @@ export const Input = forwardRef((Props:Props, ref: LegacyRef<TextInput> | null)=
         <View style={[style.boxInput,{padding:calculateSizePaddingLeft()}]}>
             {IconLeft && IconLeftName &&(
                 <TouchableOpacity onPress={onIconLeftPress} style={style.button}>
-                    <IconLeft name={IconLeftName} size={20} color={themes.colors.gray} style={style.Icon} />
+                    <IconLeft name={IconLeftName} size={20} color={themes.colors.gray} style={style.icon} />
                 </TouchableOpacity>
             )}
             <TextInput style={[style.input, {width:calculateSizeWidth()}]}  {...rest}/>
                 <TouchableOpacity onPress={onIconRightPress} style={style.button}>
-                    <IconRight name={IconRightName} size={20} color={themes.colors.gray} style={style.Icon} />
+                    <IconRight name={IconRightName} size={20} color={themes.colors.gray} style={style.icon} />
                 </TouchableOpacity>
         </View>
         </>
