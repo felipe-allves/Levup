@@ -15,15 +15,15 @@ export default ({state, navigation}) => {
                 <Ionicons name="home-outline" style={{opacity:state.index === 0?1:0.5, color:themes.colors.primary, fontSize:28}}/>
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.tabItem}>
-                <SimpleLineIcons name="fire" style={{opacity:state.index === 2?1:0.5, color:themes.colors.primary, fontSize:28}}/>
+            <TouchableOpacity style={style.tabItem} onPress={() => goRoutes("Sequence")}>
+                <SimpleLineIcons name="fire" style={{opacity:state.index === 1?1:0.5, color:themes.colors.primary, fontSize:28}}/>
             </TouchableOpacity>
 
             <TouchableOpacity style={style.tabItem} onPress={()=>goRoutes("User")}>
-                <FontAwesome name="user-o" style={{opacity:state.index === 1?1:0.5, color:themes.colors.primary, fontSize:28}}/>
+                <FontAwesome name="user-o" style={{opacity:state.index === 2?1:0.5, color:themes.colors.primary, fontSize:28}}/>
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.tabItem}>
+            <TouchableOpacity style={style.tabItem} onPress={() => goRoutes("Settings")}>
                 <Ionicons name="settings-outline" style={{opacity:state.index === 3?1:0.5, color:themes.colors.primary, fontSize:28}}/>
             </TouchableOpacity>
         </View>
